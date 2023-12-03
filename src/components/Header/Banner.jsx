@@ -6,7 +6,7 @@ import bannerFour from "../../assets/images/home-banner/bannerFour.jpg"
 
 const Banner = () => {
     return (
-        <div>
+        <div className="py-5">
             <div className="w-full h-56 sm:h-64 lg:h-[600px] xl:h-[600px] 2xl:h-[600px]">
                 <Carousel>
                     <div className=" flex h-full items-center justify-center dark:bg-gray-700 dark:text-white relative">

@@ -6,11 +6,12 @@ import SignUp from "../Pages/SignUp/SignUp";
 import AddProduct from "../Pages/AddProduct/AddProduct";
 import MyCart from "../Pages/MyCart/MyCart";
 import Contact from "../Pages/Contact/Contact";
+import MainLayout from "../Layout/MainLayout";
 
-export const router = createBrowserRouter([
+ const router = createBrowserRouter([
     {
         path: '/',
-        element: <Home />,
+        element: <MainLayout/>,
         errorElement: <ErrorPage />,
         children: [
             {
@@ -40,3 +41,5 @@ export const router = createBrowserRouter([
         ]
     }
 ])
+
+export default router;

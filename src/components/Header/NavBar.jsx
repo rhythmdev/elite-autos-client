@@ -1,4 +1,4 @@
-import { Avatar, Dropdown, Navbar } from "flowbite-react";
+import { Avatar,  Dropdown, Navbar } from "flowbite-react";
 import logo from '../../assets/logo.svg'
 import { Link, NavLink } from "react-router-dom";
 
@@ -16,6 +16,7 @@ const NavBar = () => {
         </Link>
 
         <div className="flex md:order-2">
+
           <Dropdown
             arrowIcon={false}
             inline
@@ -30,6 +31,8 @@ const NavBar = () => {
 
           </Dropdown>
           <Navbar.Toggle />
+
+
         </div>
         <Navbar.Collapse className="text-gradient-end">
 

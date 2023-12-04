@@ -8,10 +8,14 @@ import Swal from 'sweetalert2';
 import { updateProfile } from 'firebase/auth';
 const SignUp = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googleSignIn } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+     
+    //google 
 
+    
+    //email and password base auth
     const handelSignUp = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -37,6 +41,7 @@ const SignUp = () => {
                 // Signed up 
                 const user = userCredential.user;
                 console.log(user);
+                //update user name and photo
                 updateProfile(user, {
                     displayName: name,
                     photoURL: photoURL,

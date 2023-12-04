@@ -2,14 +2,54 @@ import { Link } from "react-router-dom";
 import logo from '../../assets/logo.svg'
 import { Button } from "flowbite-react";
 import { FcGoogle } from "react-icons/fc";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 const SignIn = () => {
 
+    const { signIn, googleSignIn } = useContext(AuthContext);
+
+    //google login
+    const handelGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Swal.fire(`Welcome ${user?.displayName} to EliteAutos`)
+            })
+            .catch(error => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode);
+                Swal.fire(errorMessage)
+            })
+    }
+
+
+    //email and password base login
     const handelSignIn = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
         const password = form.get('password');
-        console.log(email, password);
+        // console.log(email, password);
+        //sign in existing user
+        signIn(email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user);
+                Swal.fire(`Welcome ${user?.displayName} to EliteAutos`)
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode);
+                Swal.fire(errorMessage);
+
+            });
+        e.currentTarget.reset();
+
     }
 
     return (
@@ -35,13 +75,13 @@ const SignIn = () => {
                                     <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                                 </div>
 
-                                <button type="submit" className="w-full text-white bg-gradient-to-r from-gradient-start to-gradient-end hover:focus:ring-4 focus:outline-none focus:ring-gradient-start font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gradient-end dark:hover:bg-gradient-start dark:focus:ring-gradient-start">Create an account</button>
+                                <button type="submit" className="w-full text-white bg-gradient-to-r from-gradient-start to-gradient-end hover:focus:ring-4 focus:outline-none focus:ring-gradient-start font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gradient-end dark:hover:bg-gradient-start dark:focus:ring-gradient-start">Sign In</button>
                                 <span className="flex items-center">
                                     <span className="h-px flex-1 bg-gray-400"></span>
                                     <span className="shrink-0 px-6 font-medium">Or Sign in with</span>
                                     <span className="h-px flex-1 bg-gray-400"></span>
                                 </span>
-                                <Button className='bg-gradient-to-r from-gradient-start to-gradient-end border-none mx-auto'>
+                                <Button onClick={handelGoogleSignIn} className='bg-gradient-to-r from-gradient-start to-gradient-end border-none mx-auto'>
                                     Google
                                     <FcGoogle className="ml-2 h-5 w-5" />
                                 </Button>

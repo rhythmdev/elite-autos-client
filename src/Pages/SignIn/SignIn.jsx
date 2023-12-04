@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from '../../assets/logo.svg'
 import { Button } from "flowbite-react";
 import { FcGoogle } from "react-icons/fc";
@@ -8,6 +8,8 @@ import Swal from "sweetalert2";
 const SignIn = () => {
 
     const { signIn, googleSignIn } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     //google login
     const handelGoogleSignIn = () => {
@@ -16,6 +18,8 @@ const SignIn = () => {
                 const user = result.user;
                 console.log(user);
                 Swal.fire(`Welcome ${user?.displayName} to EliteAutos`)
+                // navigate after login
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 const errorCode = error.code;
@@ -39,7 +43,9 @@ const SignIn = () => {
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user);
-                Swal.fire(`Welcome ${user?.displayName} to EliteAutos`)
+                Swal.fire(`Welcome ${user?.displayName} to EliteAutos`);
+                // navigate after login
+                navigate(location?.state ? location.state : '/');
             })
             .catch((error) => {
                 const errorCode = error.code;

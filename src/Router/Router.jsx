@@ -7,11 +7,12 @@ import AddProduct from "../Pages/AddProduct/AddProduct";
 import MyCart from "../Pages/MyCart/MyCart";
 import Contact from "../Pages/Contact/Contact";
 import MainLayout from "../Layout/MainLayout";
+import PrivateRoute from "./PrivateRoute";
 
- const router = createBrowserRouter([
+const router = createBrowserRouter([
     {
         path: '/',
-        element: <MainLayout/>,
+        element: <MainLayout />,
         errorElement: <ErrorPage />,
         children: [
             {
@@ -28,11 +29,11 @@ import MainLayout from "../Layout/MainLayout";
             },
             {
                 path: '/addProduct',
-                element: <AddProduct />
+                element: <PrivateRoute><AddProduct /></PrivateRoute>
             },
             {
                 path: '/myCart',
-                element: <MyCart />
+                element: <PrivateRoute> <MyCart /></PrivateRoute>
             },
             {
                 path: '/contact',

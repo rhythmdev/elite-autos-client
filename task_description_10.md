@@ -40,11 +40,11 @@ Here, we have provided you a list of `7 different types of categories to build y
 
 ### :writing_hand: Main Requirements
 
-1. Make sure your design and website idea is unique. First, finalize your idea (what type of website you want to build). Then google the site design or visit `themeforest` to get your website idea. [You can visit this blog to collect free resources for your website](https://bootcamp.uxdesign.cc/free-images-and-resources-collection-for-website-c77f2fc46ce5). However, your website :x: `can not be related to your previous assignments or any demo project displayed in the course or in our conceptual sessions` :x:.
+1. Make sure your design and website idea is unique. First, finalize your idea (what type of website you want to build). Then google the site design or visit `themeforest` to get your website idea. [You can visit this blog to collect free resources for your website](https://bootcamp.uxdesign.cc/free-images-and-resources-collection-for-website-c77f2fc46ce5). However, your website :x: `can not be related to your previous assignments or any demo project displayed in the course or in our conceptual sessions` :x:. - done
 
 2. Home page will have a navbar, banner, footer and at least 6 types of brand names having the following information: `brand image`and `brand name`.
 
-3. The navbar will have website name with logo, Home, Add Product, My Cart, and Login.
+3. The navbar will have website name with logo, Home, Add Product, My Cart, and Login. -done
 
 4. Add two extra sections in the home page in addition to the 4 sections mentioned above.
 
@@ -94,7 +94,7 @@ Here, we have provided you a list of `7 different types of categories to build y
 
     This will be a private/protected route.
 
-12. You Must implement Email and password based Authentication. This means, you will have to implement the Registration and the login page. Users should be able to toggle between Login and Registration view .
+12. You Must implement Email and password based Authentication. This means, you will have to implement the Registration and the login page. Users should be able to toggle between Login and Registration view . -done.
 
 > :warning: `Note:` Do not enforce `forget or reset password feature` and the `email verification method`, as it will inconvenience the examiner. If you want, you can add email verification/forget the password after receiving the assignment result.
 
@@ -104,19 +104,21 @@ On the Registration page, display errors when:
 
      - is less than 6 characters
      - don't have a capital letter
-     - don't have a special character
+     - don't have a special character 
+     done
 
 On the Login page, display errors when:
 
     - password doesn't match
     - email doesn't match
     You can take the error message from firebase. You can show the error below the input fields or via alert/toast. If you use alert/toast, do not implement the browser alert.
+    done
 
-13. Also, implement at least `one extra login` which could be (facebook, github, google, etc).
+13. Also, implement at least `one extra login` which could be (facebook, github, google, etc). -done
 
-14. Once logged in, the user name, profile picture and the logout button should appear on the navbar. If the user clicks on the logout button, make sure to log him/her out.
+14. Once logged in, the user name, profile picture and the logout button should appear on the navbar. If the user clicks on the logout button, make sure to log him/her out. -done
 
-15. Add a 404 page (not found page)
+15. Add a 404 page (not found page) -done
 
 ### :gift: Bonus Requirements:
 

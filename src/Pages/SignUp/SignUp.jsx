@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
 import { FcGoogle } from "react-icons/fc";
 import { Button } from 'flowbite-react';
@@ -8,11 +8,28 @@ import Swal from 'sweetalert2';
 import { updateProfile } from 'firebase/auth';
 const SignUp = () => {
 
-    const { createUser, googleSignIn } = useContext(AuthContext);
+    const { createUser, googleSignIn, logOut } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
+    const location = useLocation();
     const navigate = useNavigate();
      
-    //google 
+    //google sign in
+    const handelGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Swal.fire(`Welcome ${user?.displayName} to EliteAutos`)
+                  // navigate after login
+                  navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode);
+                Swal.fire(errorMessage)
+            })
+    }
 
     
     //email and password base auth
@@ -46,7 +63,9 @@ const SignUp = () => {
                     displayName: name,
                     photoURL: photoURL,
                 });
+                logOut();
                 Swal.fire('Sign Up Successfully!')
+                navigate('/signIn')
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -107,7 +126,7 @@ const SignUp = () => {
                                     <span className="shrink-0 px-6 font-medium">Or Sign up with</span>
                                     <span className="h-px flex-1 bg-gray-400"></span>
                                 </span>
-                                <Button className='bg-gradient-to-r from-gradient-start to-gradient-end border-none mx-auto'>
+                                <Button onClick={handelGoogleSignIn } className='bg-gradient-to-r from-gradient-start to-gradient-end border-none mx-auto'>
                                     Google
                                     <FcGoogle className="ml-2 h-5 w-5" />
                                 </Button>

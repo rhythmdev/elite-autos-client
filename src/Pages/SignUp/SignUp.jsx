@@ -1,17 +1,54 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
 import { FcGoogle } from "react-icons/fc";
 import { Button } from 'flowbite-react';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
+import { updateProfile } from 'firebase/auth';
 const SignUp = () => {
+
+    const { createUser } = useContext(AuthContext);
+    const [registerError, setRegisterError] = useState('');
+    const navigate = useNavigate()
 
     const handelSignUp = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const name = form.get('name');
         const email = form.get('email');
-        const photoURl = form.get('photoUrl');
+        const photoURL = form.get('photoUrl');
         const password = form.get('password');
-        console.log(name, email, photoURl, password);
+        // console.log(name, email, photoURl, password);
+        setRegisterError('');
+        if (password.length < 6) {
+            setRegisterError('Password should be at least 6 characters long');
+            return;
+        }
+        else if (!/[A-Z](?=.*?[#?!@$%^&*-])/.test(password)) {
+            setRegisterError('Your password should have at least one upper case and one special characters');
+            return;
+        }
+
+
+        //create new user
+        createUser(email, password)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                console.log(user);
+                updateProfile(user, {
+                    displayName: name,
+                    photoURL: photoURL,
+                });
+                Swal.fire('Sign Up Successfully!')
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode);
+                Swal.fire(errorMessage)
+            });
 
     }
 
@@ -53,6 +90,11 @@ const SignUp = () => {
                                     <div className="ml-3 text-sm">
                                         <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">I accept the <a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
                                     </div>
+                                </div>
+                                <div>
+                                    {
+                                        registerError && <p className='font-semibold text-sm text-red-600 text-center'>{registerError}</p>
+                                    }
                                 </div>
                                 <button type="submit" className="w-full text-white bg-gradient-to-r from-gradient-start to-gradient-end hover:focus:ring-4 focus:outline-none focus:ring-gradient-start font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gradient-end dark:hover:bg-gradient-start dark:focus:ring-gradient-start">Create an account</button>
                                 <span className="flex items-center">

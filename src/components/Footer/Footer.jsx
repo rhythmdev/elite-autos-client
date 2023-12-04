@@ -11,7 +11,7 @@ const Footer = () => {
                         <img src={logo} alt="logo" className='' />
                         <span className="self-center whitespace-nowrap text-3xl font-bold dark:text-white font-lobster bg-gradient-to-r from-gradient-start to-gradient-end  text-transparent bg-clip-text ">EliteAutos</span>
                     </Link>
-                    <p className="my-6 text-gradient-end dark:text-gray-400 font-semibold">ORevolutionize Your Ride, Embrace Automotive Excellence!</p>
+                    <p className="my-6 text-gradient-end dark:text-gray-400 font-semibold">Revolutionize Your Ride, Embrace Automotive Excellence!</p>
                     <ul className="flex flex-wrap justify-center items-center mb-3 text-gray-900 dark:text-white gap-3">
                         <li>
                             <a href="https://www.facebook.com/" className="mr-4 hover:underline md:mr-6 text-2xl"><LuFacebook /></a>

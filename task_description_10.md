@@ -59,7 +59,7 @@ Here, we have provided you a list of `7 different types of categories to build y
    - Rating
    - Add button
 
-   This will be a private/protected route.
+   This will be a private/protected route. done
 
 6. On clicking a brand will redirect the user to the page having products based on that brand. On that page, there will be a slider having at least 3 advertisement images and at least 4 products. Each product will have:
 

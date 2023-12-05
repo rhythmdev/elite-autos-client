@@ -6,7 +6,7 @@ const AddProduct = () => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const product_name = form.get('product_name');
-        const brand = form.get('brand');
+        const brand_name = form.get('brand_name');
         const price = form.get('price');
         const category = form.get('category');
         const image = form.get('image');
@@ -15,7 +15,7 @@ const AddProduct = () => {
 
         const newProduct = {
             product_name,
-            brand,
+            brand_name,
             price,
             category,
             image,
@@ -34,7 +34,7 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if(data.insertedId) {
+                if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'Product Added Successfully',
@@ -43,14 +43,14 @@ const AddProduct = () => {
                     })
                 }
             })
-            e.currentTarget.reset()
+        e.currentTarget.reset()
     }
 
     return (
-        <div className="py-8">
+        <div className="py-10">
             <h2 className="text-2xl text-gradient-end font-semibold text-center">Add a new Product</h2>
 
-            <div className=" p-4 w-full max-w-2xl h-full md:h-auto mx-auto ">
+            <div className=" p-4 w-full max-w-2xl h-full md:h-auto mx-auto mt-3">
 
                 <div className=" p-4 bg-gray-100 rounded-lg shadow dark:bg-gray-800 sm:p-5">
 
@@ -61,15 +61,15 @@ const AddProduct = () => {
                                 <input type="text" name="product_name" id="product_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required />
                             </div>
                             <div>
-                                <label htmlFor="brand" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Brand</label>
-                                <select id="brand" name="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <label htmlFor="brand_name" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Brand</label>
+                                <select id="brand_name" name="brand_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                     <option defaultValue='Select Brand'>Select Brand</option>
                                     <option value="Toyota">Toyota</option>
                                     <option value="Ford">Ford</option>
                                     <option value="BMW">BMW</option>
                                     <option value="Mercedes-Benz">Mercedes-Benz</option>
                                     <option value="Honda">Honda</option>
-                                    <option value="Tesla">tesla</option>
+                                    <option value="Tesla">Tesla</option>
                                 </select>
                             </div>
                             <div>

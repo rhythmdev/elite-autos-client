@@ -7,8 +7,8 @@ const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
     if (loading) {
-        return <div className='flex flex-wrap gap-2'>
-            <div className="text-center">
+        return <div className='flex items-center justify-center gap-2 min-h-screen'>
+            <div className="">
                 <Spinner aria-label="Center-aligned spinner example" size='xl' />
             </div>
         </div>

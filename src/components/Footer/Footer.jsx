@@ -5,7 +5,7 @@ import { RiTwitterXLine, RiRedditLine } from "react-icons/ri";
 const Footer = () => {
     return (
         <div>
-            <footer className="p-4 bg-gray-50 md:p-8 lg:p-10 dark:bg-gray-800 rounded">
+            <footer className="p-4 bg-slate-100 md:p-8 lg:p-10 dark:bg-gray-800 rounded shadow shadow-gray-200">
                 <div className="mx-auto max-w-screen-xl text-center">
                     <Link to={'/'} className="flex justify-center items-center dark:text-white px-2">
                         <img src={logo} alt="logo" className='' />

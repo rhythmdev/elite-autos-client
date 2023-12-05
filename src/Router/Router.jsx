@@ -8,6 +8,7 @@ import MyCart from "../Pages/MyCart/MyCart";
 import Contact from "../Pages/Contact/Contact";
 import MainLayout from "../Layout/MainLayout";
 import PrivateRoute from "./PrivateRoute";
+import BrandDetails from "../Pages/BrandDetails/BrandDetails";
 
 const router = createBrowserRouter([
     {
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home />
+                element: <Home />,
+                loader: () => fetch('http://localhost:6900/brands')
             },
             {
                 path: '/signIn',
@@ -26,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: '/signUp',
                 element: <SignUp />
+            },
+            {
+                path: '/brandDetails/:brandName',
+                element: <BrandDetails />
             },
             {
                 path: '/addProduct',

@@ -10,6 +10,7 @@ import MainLayout from "../Layout/MainLayout";
 import PrivateRoute from "./PrivateRoute";
 import BrandDetails from "../Pages/BrandDetails/BrandDetails";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
+import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 
 const router = createBrowserRouter([
     {
@@ -38,8 +39,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/productDetails/:id',
-                element: <ProductDetails />,
+                element: <PrivateRoute><ProductDetails /></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:6900/products/${params.id}`)
+            },{
+                path:'/updateProduct/:id',
+                element: <UpdateProduct/>,
+                loader: ({params}) => fetch(`http://localhost:6900/products/${params.id}`)
             },
             {
                 path: '/addProduct',

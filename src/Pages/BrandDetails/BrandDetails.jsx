@@ -23,8 +23,6 @@ const BrandDetails = () => {
                 </Carousel>
             </div>
 
-
-
             {/* end of brand slider area */}
 
             {/* brand products area */}
@@ -67,8 +65,11 @@ const BrandDetails = () => {
                                                         />
                                                     </div>
                                                 </div>
-                                                <div className="p-6 pt-0 flex items-center justify-between">
-                                                    <Button className='bg-gradient-to-r from-gradient-start to-gradient-end border-node'>Update</Button>
+                                                <div className="p-6 pt-0 flex items-center justify-around">
+                                                    <Link to={`/updateProduct/${product._id}`}>
+                                                        <Button className='bg-gradient-to-r from-gradient-start to-gradient-end border-node'>Update</Button>
+
+                                                    </Link>
                                                     <Link to={`/productDetails/${product?._id}`}>
                                                         <Button className='bg-gradient-to-r from-gradient-end to-gradient-start border-none'>Details</Button>
                                                     </Link>

@@ -6,9 +6,7 @@ const BrandCard = ({ brand }) => {
 
     const { brandName, image_url } = brand || {};
 
-    // const handelBrandDetails = (brand) => {
-
-    // }
+   
 
     return (
         <div>

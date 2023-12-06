@@ -1,19 +1,33 @@
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
-import { Button } from 'flowbite-react';
+import { Button, Carousel } from 'flowbite-react';
+import { useState } from 'react';
 import { useLoaderData, useParams } from "react-router-dom";
 
 const BrandDetails = () => {
     const products = useLoaderData();
 
+
     const { brandName } = useParams();
     const filteredProducts = products.filter(product => product.brand_name === brandName);
     console.log(filteredProducts);
 
+
     return (
-        <div>
+        <div className='py-8'>
             {/* brand slider area */}
+            <div className="h-56 sm:h-64 xl:h-96 2xl:h-96">
+                <Carousel>
+                    {
+                        filteredProducts?.slice(0, 3)?.map((brandImage, idx) => <img key={idx} src={brandImage?.image} alt="..." />)
+                    }
+
+                </Carousel>
+            </div>
+
+
+
             {/* end of brand slider area */}
 
             {/* brand products area */}

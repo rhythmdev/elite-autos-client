@@ -9,6 +9,7 @@ import Contact from "../Pages/Contact/Contact";
 import MainLayout from "../Layout/MainLayout";
 import PrivateRoute from "./PrivateRoute";
 import BrandDetails from "../Pages/BrandDetails/BrandDetails";
+import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +34,12 @@ const router = createBrowserRouter([
                 path: '/brandDetails/:brandName',
                 element: <BrandDetails />,
                 loader: () => fetch('http://localhost:6900/products'),
-               
+
+            },
+            {
+                path: '/productDetails/:id',
+                element: <ProductDetails />,
+                loader: ({ params }) => fetch(`http://localhost:6900/products/${params.id}`)
             },
             {
                 path: '/addProduct',

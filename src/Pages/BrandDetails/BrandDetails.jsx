@@ -1,17 +1,14 @@
 import { Rating } from '@smastrom/react-rating'
-
 import '@smastrom/react-rating/style.css'
 import { Button, Carousel } from 'flowbite-react';
-import { useState } from 'react';
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
 const BrandDetails = () => {
     const products = useLoaderData();
-
-
     const { brandName } = useParams();
     const filteredProducts = products.filter(product => product.brand_name === brandName);
-    console.log(filteredProducts);
+    // console.log(filteredProducts);
+
 
 
     return (
@@ -72,7 +69,10 @@ const BrandDetails = () => {
                                                 </div>
                                                 <div className="p-6 pt-0 flex items-center justify-between">
                                                     <Button className='bg-gradient-to-r from-gradient-start to-gradient-end border-node'>Update</Button>
-                                                    <Button className='bg-gradient-to-r from-gradient-end to-gradient-start border-none'>Details</Button>
+                                                    <Link to={`/productDetails/${product?._id}`}>
+                                                        <Button className='bg-gradient-to-r from-gradient-end to-gradient-start border-none'>Details</Button>
+                                                    </Link>
+
                                                 </div>
                                             </div>
                                         ))

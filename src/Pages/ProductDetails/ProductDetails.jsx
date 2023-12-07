@@ -1,11 +1,52 @@
 import { Rating } from "@smastrom/react-rating";
 import { Button } from "flowbite-react";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
     const product = useLoaderData();
+    const { user } = useContext(AuthContext);
 
     const { product_name, brand_name, price, image, rating, description, category } = product || {};
+
+    const productData = {
+        product_name: product.product_name,
+        brand_name: product.brand_name,
+        image: product.image,
+        price: product.price,
+        category: product.category
+    }
+    console.log(productData);
+    const cartData = {
+        userEmail: user?.email,
+        userProductData: productData
+    }
+
+
+    const handelAddToCart = () => {
+
+
+        fetch('http://localhost:6900/myCart/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(cartData)
+        })
+            .then(res => res.json())
+            .then(data => {
+               if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Product Added To Cart Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Okay'
+                })
+               }
+            })
+    }
 
     return (
         <div className="py-10 lg:mt-14">
@@ -28,7 +69,7 @@ const ProductDetails = () => {
                         {category}
                     </h6>
 
-                    <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-gradient-end">
+                    <h4 className="block mb-2  text-2xl antialiased font-bold leading-snug tracking-normal text-gradient-end">
                         {product_name}
                     </h4>
                     <p className="block mb-8  text-base antialiased font-normal leading-relaxed text-gray-600">
@@ -47,7 +88,7 @@ const ProductDetails = () => {
                         </div>
 
                     </div>
-                    <Button className="bg-gradient-to-r from-gradient-start to-gradient-end border-none mt-4">Add to Cart</Button>
+                    <Button onClick={handelAddToCart} className="bg-gradient-to-r from-gradient-start to-gradient-end border-none mt-4">Add to Cart</Button>
 
                 </div>
             </div>

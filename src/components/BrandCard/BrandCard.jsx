@@ -13,7 +13,7 @@ const BrandCard = ({ brand }) => {
             <Link to={`/brandDetails/${brand.brandName}`}>
                 <div className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-full cursor-pointer ">
                     <div
-                        className="relative h-64 mx-4 -mt-6 overflow-hidden text-white bg-clip-border rounded-xl bg-slate-100 shadow shadow-gray-200 ">
+                        className="relative h-64 mx-4 -mt-6 overflow-hidden text-white bg-clip-border rounded-xl bg-blue-50 shadow shadow-gray-200 ">
                         <img className="w-80 h-60 mx-auto"
                             src={image_url} />
                     </div>

@@ -46,7 +46,7 @@ Here, we have provided you a list of `7 different types of categories to build y
 
 3. The navbar will have website name with logo, Home, Add Product, My Cart, and Login. -done
 
-4. Add two extra sections in the home page in addition to the 4 sections mentioned above.
+4. Add two extra sections in the home page in addition to the 4 sections mentioned above. -done
 
 5. Create an `Add Product` page where there will be a form for the user to add a product. The form will have:
 
@@ -78,9 +78,9 @@ Here, we have provided you a list of `7 different types of categories to build y
 
 8. The product detail route will be a private/protected route. Please make sure that if the user is not logged in, the private route redirects to the login page. -done
 
-9. Clicking the `Add to Cart` button will store your product information in to the database. Inform the user with a success message using a toast/alert. `Do not use the browser alert.`
+9. Clicking the `Add to Cart` button will store your product information in to the database. Inform the user with a success message using a toast/alert. `Do not use the browser alert.` -done
 
-10. Create a `My Cart` page where a user will see all his/her added products. If the user wants, he/she can delete a product. The design is up to you. This will be a private/protected route.
+10. Create a `My Cart` page where a user will see all his/her added products. If the user wants, he/she can delete a product. The design is up to you. This will be a private/protected route. -done
 
 11. Clicking on the `Update button` will redirect the user to a form page where the form will have:
 
@@ -92,7 +92,7 @@ Here, we have provided you a list of `7 different types of categories to build y
     - Rating
     - Submit button
 
-    This will be a private/protected route.
+    This will be a private/protected route. -done
 
 12. You Must implement Email and password based Authentication. This means, you will have to implement the Registration and the login page. Users should be able to toggle between Login and Registration view . -done.
 

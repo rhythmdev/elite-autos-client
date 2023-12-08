@@ -5,6 +5,7 @@ import { useContext } from "react";
 
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { DarkMode } from "../DarkMode/DarkMode";
 
 // from-[#07B3C6] to-[#034f68] 
 const NavBar = () => {
@@ -33,14 +34,15 @@ const NavBar = () => {
 
         </Link>
 
-        <div className="flex md:order-2">
+        <div className="flex md:order-2 items-center space-x-1 lg:space-x-3">
 
+          <DarkMode />
           {user ? (
             <Button size='sm' onClick={handelSignOut} className="bg-gradient-to-r from-gradient-start to-gradient-end border-none mr-3">Sign Out</Button>
           )
             : (
               <Link to='/signIn'>
-                <Button size='sm' className="bg-gradient-to-r from-gradient-start to-gradient-end border-none mr-3">Sign In</Button>
+                <Button size='sm' className="bg-gradient-to-r from-gradient-start to-gradient-end border-none">Sign In</Button>
               </Link>
 
             )

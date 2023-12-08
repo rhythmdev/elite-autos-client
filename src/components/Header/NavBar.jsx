@@ -23,6 +23,7 @@ const NavBar = () => {
 
   return (
     <div>
+
       <Navbar fluid rounded >
         <Link to='/'>
           <Navbar.Brand>
@@ -120,6 +121,8 @@ const NavBar = () => {
           </NavLink>
         </Navbar.Collapse>
       </Navbar>
+
+
     </div>
   );
 };

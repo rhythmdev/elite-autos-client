@@ -29,7 +29,7 @@ const UpdateProduct = () => {
         }
         console.log(updatedProduct);
         //send product data to database
-        fetch(`http://localhost:6900/updateProduct/${_id}`, {
+        fetch(`https://elite-autos-server.vercel.app/updateProduct/${_id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

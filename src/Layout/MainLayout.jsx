@@ -3,17 +3,18 @@ import NavBar from "../components/Header/Navbar";
 import Footer from "../components/Footer/Footer";
 
 
-
-
 const MainLayout = () => {
     return (
         <div className="container mx-auto px-5 py-4 font-montserrat">
-            <NavBar/>
+            <NavBar />
             <div className="min-h-screen">
-            <Outlet/>
+                <Outlet />
+
             </div>
-           <Footer/>
+            <Footer />
         </div>
+
+
     );
 };
 

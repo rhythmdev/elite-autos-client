@@ -28,7 +28,7 @@ const ProductDetails = () => {
     const handelAddToCart = () => {
 
 
-        fetch('http://localhost:6900/myCart/', {
+        fetch('https://elite-autos-server.vercel.app/myCart/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -37,14 +37,14 @@ const ProductDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-               if(data.insertedId){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Product Added To Cart Successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Okay'
-                })
-               }
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Product Added To Cart Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Okay'
+                    })
+                }
             })
     }
 

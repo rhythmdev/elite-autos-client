@@ -22,7 +22,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                loader: () => fetch('http://localhost:6900/brands')
+                loader: () => fetch('https://elite-autos-server.vercel.app/brands')
             },
             {
                 path: '/signIn',
@@ -35,17 +35,17 @@ const router = createBrowserRouter([
             {
                 path: '/brandDetails/:brandName',
                 element: <BrandDetails />,
-                loader: () => fetch('http://localhost:6900/products'),
+                loader: () => fetch('https://elite-autos-server.vercel.app/products'),
 
             },
             {
                 path: '/productDetails/:id',
                 element: <PrivateRoute><ProductDetails /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:6900/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://elite-autos-server.vercel.app/products/${params.id}`)
             }, {
                 path: '/updateProduct/:id',
                 element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:6900/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://elite-autos-server.vercel.app/products/${params.id}`)
             },
             {
                 path: '/addProduct',

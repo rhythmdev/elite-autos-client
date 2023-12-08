@@ -12,6 +12,7 @@ const BrandDetails = () => {
 
 
     return (
+
         <div className='py-8'>
             {/* brand slider area */}
             <div className="h-56 sm:h-64 xl:h-96 2xl:h-96">
@@ -32,10 +33,10 @@ const BrandDetails = () => {
                         filteredProducts.length === 0 ? (<h2 className="text-2xl font-semibold text-gradient-end text-center">No Products Available For <span className="text-gradient-start">{brandName}</span></h2>)
                             :
                             (
-
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-5 w-full">
                                     {
                                         filteredProducts?.map(product => (
+
                                             <div key={product?._id} className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl ">
                                                 <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-64">
                                                     <img
@@ -76,6 +77,10 @@ const BrandDetails = () => {
 
                                                 </div>
                                             </div>
+
+
+
+
                                         ))
                                     }
                                 </div>

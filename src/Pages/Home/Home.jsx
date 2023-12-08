@@ -5,15 +5,17 @@ import { MdOutlineContactSupport } from "react-icons/md";
 import { FaSteamSymbol } from "react-icons/fa";
 import { LuFolderHeart } from "react-icons/lu";
 
+
 const Home = () => {
   const brands = useLoaderData();
   // console.log(brands);
   return (
     <div>
       <Banner />
+
       {/* who we are area */}
       <div className="py-12">
-        <h3 className="text-center text-2xl lg:text-4xl font-bold font-lobster bg-gradient-to-r from-gradient-start to-gradient-end  text-transparent bg-clip-text">Who We Are</h3>
+        <h3 className="text-center text-2xl lg:text-4xl font-bold font-lobster bg-gradient-to-r from-gradient-start to-gradient-end  text-transparent bg-clip-text ">Who We Are</h3>
         <p className="text-base font-medium text-slate-500 antialiased text-center p-5">Welcome to EliteAutos, where automotive passion meets unparalleled service. At EliteAutos, we take pride in being more than just a car dealership. We are a team of dedicated enthusiasts with a shared love for automobiles and a commitment to delivering an exceptional experience to our customers.</p>
       </div>
       {/* end of who we are area */}

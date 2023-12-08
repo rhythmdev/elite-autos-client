@@ -1,4 +1,3 @@
-
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -10,6 +9,7 @@ const BrandCard = ({ brand }) => {
 
     return (
         <div>
+            
             <Link to={`/brandDetails/${brand.brandName}`}>
                 <div className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-full cursor-pointer ">
                     <div
@@ -26,6 +26,8 @@ const BrandCard = ({ brand }) => {
 
                 </div>
             </Link>
+          
+         
 
         </div>
     );

@@ -10,7 +10,7 @@ const MyCart = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`http://localhost:6900/myCart/${user.email}`)
+        fetch(`https://elite-autos-server.vercel.app/myCart/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setCartItems(data)
@@ -21,7 +21,6 @@ const MyCart = () => {
 
     // delete from cart
     const handelDeleteFromCart = (productId) => {
-        //  fetch(`http://localhost:6900/myCart/remove?userEmail=${user?.email}&productId=${productId}`)
         Swal.fire({
             title: "Are you sure you want to remove it?",
             text: "You won't be able to revert this!",
@@ -32,7 +31,7 @@ const MyCart = () => {
             confirmButtonText: "Yes, remove it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:6900/myCart/remove?userEmail=${user?.email}&productId=${productId}`, {
+                fetch(`https://elite-autos-server.vercel.app/myCart/remove?userEmail=${user?.email}&productId=${productId}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

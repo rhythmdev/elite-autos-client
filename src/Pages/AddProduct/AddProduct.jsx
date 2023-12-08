@@ -24,7 +24,7 @@ const AddProduct = () => {
         }
         console.log(newProduct);
         //send product data to database
-        fetch('http://localhost:6900/products', {
+        fetch('https://elite-autos-server.vercel.app/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

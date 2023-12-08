@@ -40,18 +40,22 @@ const SignUp = () => {
         const email = form.get('email');
         const photoURL = form.get('photoUrl');
         const password = form.get('password');
-        // console.log(name, email, photoURl, password);
-        setRegisterError('');
-        if (password.length < 6) {
-            setRegisterError('Password should be at least 6 characters long');
-            return;
-        }
-        else if (!/[A-Z](?=.*?[#?!@$%^&*-])/.test(password)) {
-            setRegisterError('Your password should have at least one upper case and one special characters');
-            return;
-        }
 
-
+            setRegisterError('');
+            if (password.length < 6) {
+                setRegisterError('Password should be at least 6 characters long');
+                return;
+            }
+            if(!/[A-Z]/.test(password)) {
+                setRegisterError('Password should have at least one upper case');
+                return;
+            }
+           if(!/(?=.*?[#?!@$%^&*-])/.test(password)){
+                setRegisterError('Password should have at least one special character');
+                return;
+            }
+           
+    
         //create new user
         createUser(email, password)
             .then((userCredential) => {
@@ -73,7 +77,7 @@ const SignUp = () => {
                 console.log(errorCode);
                 Swal.fire(errorMessage)
             });
-
+           e.currentTarget.reset();
     }
 
     return (

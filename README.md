@@ -1,8 +1,25 @@
-# React + Vite
+# Elite Autos
+Revolutionize Your Ride, Embrace Automotive Excellence!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Website Link: [Elite Autos] (https://eliteautos-b0f82.web.app/)
+## Server Link: [Elite Autos] ( https://github.com/programming-hero-web-course-4/b8a10-brandshop-server-side-rhythmdev)
 
-Currently, two official plugins are available:
+### Features
+***User Authentication with firebase***
+- Any user can register with their necessary information.
+- Logged In user can see their profile pic, name, and email on the nav also log out button.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+***Private Protected Route***
+- Necessary route are private protected for security purpose. Only logged in user can see protected route.
+
+***Product add system***
+- User can add their own product.
+- User can add their favorite product to their cart and see their cart.
+
+***Mongodb***
+- For database integration mongodb are used.
+
+***CRUD***
+- Create, Read, Update, and Delete operations for user base generated content, providing  dynamic and interactive user experience to the users.
+
+
